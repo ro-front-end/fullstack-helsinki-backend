@@ -31,7 +31,7 @@ let persons = [
   },
 ];
 const generateId = () => {
-  persons.length > 0 ? Math.max(...persons.map((p) => p.id)) : 0;
+  const maxId = persons.length > 0 ? Math.max(...persons.map((p) => p.id)) : 0;
 
   return maxId + 1;
 };
@@ -75,7 +75,7 @@ app.post("/api/persons", (request, response) => {
     name: body.name,
     number: body.number,
     important: Boolean(body.importat) || false,
-    id: generateID(),
+    id: generateId(),
   };
 
   persons.push(newPerson);
