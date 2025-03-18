@@ -74,7 +74,7 @@ app.post("/api/persons", (request, response) => {
   const newPerson = {
     name: body.name,
     number: body.number,
-    important: Boolean(body.importat) || false,
+    important: Boolean(body.important) || false,
     id: generateId(),
   };
 
@@ -84,7 +84,7 @@ app.post("/api/persons", (request, response) => {
 });
 
 app.delete("/api/persons/:id", (request, response) => {
-  id = request.params.id;
+  id = Number(request.params.id);
   persons = persons.filter((person) => person.id !== id);
 
   response.status(204).end();
@@ -97,7 +97,7 @@ app.get("/api/persons/info", (request, response) => {
 });
 
 const unknownEndpoint = (request, response) => {
-  response.status(404).send({ error: "unkwon endpoint" });
+  response.status(404).send({ error: "unknown endpoint" });
 };
 
 app.use(unknownEndpoint);
