@@ -4,7 +4,7 @@
   "description": "Fullstack-helsinki-exercises",
   "main": "index.js",
   "scripts": {
-    "start": "https://localhost:3001",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
